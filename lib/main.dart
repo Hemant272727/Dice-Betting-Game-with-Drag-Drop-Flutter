@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: BettingPage(),
+          // home: BettingPage(),
           // home: DraggableScreen(),
-          // home: DragTargetScreen(),
+          home: DragTargetScreen(),
         );
       });
     });

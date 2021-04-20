@@ -2,8 +2,6 @@ import 'package:drag_drop_animation/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import 'constants/color_constants.dart';
-
 class DragTargetScreen extends StatefulWidget {
   DragTargetScreen({Key key}) : super(key: key);
 
@@ -22,16 +20,16 @@ class _DragTargetScreenState extends State<DragTargetScreen> {
         children: [
           Draggable<int>(
             child: SkyBlueCoin(),
-            childWhenDragging: PinkCoin(),
             feedback: DarkRedCoin(),
+            childWhenDragging: PinkCoin(),
             data: 3,
           ),
           SizedBox(height: 10.0.h),
           DragTarget<int>(
-            builder: (context, value, rejects) {
+            builder: (context, candidateData, rejectedData) {
               return isDroppedOnDropTarget
                   ? PurpleCoin()
-                  : value.isNotEmpty
+                  : candidateData.isNotEmpty
                       ? BlueCoin()
                       : RedCoin();
             },
